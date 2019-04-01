@@ -50,20 +50,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MySalaryCalculator_DeveloperTests.cs" />
-    <Compile Include="MySalaryCalculator_ManagerTests.cs" />
+    <Compile Include="MySalaryCalculatorDeveloperTests.cs" />
+    <Compile Include="MySalaryCalculatorManagerTests.cs" />
     <Compile Include="MyFactoryCalculatorTests.cs" />
     <Compile Include="MyManagerTests.cs" />
     <Compile Include="MyDepartmentTests.cs" />
-    <Compile Include="MySalaryCalculator_DesignerTests.cs" />
+    <Compile Include="MySalaryCalculatorDesignerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Company_OOP\Company_OOP.csproj">
+    <ProjectReference Include="..\CompanyDAL\CompanyDAL.csproj">
+      <Project>{28806ED7-5E36-40B0-AA90-13A9EB11437B}</Project>
+      <Name>CompanyDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company_OOP\CompanyBLL.csproj">
       <Project>{c3a4bea1-8004-43ad-b8fd-f7c82939d6bf}</Project>
-      <Name>Company_OOP</Name>
+      <Name>CompanyBLL</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

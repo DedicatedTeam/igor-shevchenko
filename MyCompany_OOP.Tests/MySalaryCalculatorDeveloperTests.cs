@@ -1,12 +1,12 @@
 ﻿using System;
-using Company_OOP.Calculators;
-using Company_OOP.Employees;
+using Company_OOP.CompanyBLL.CalculatorServices;
+using Company_OOP.CompanyDAL.EmployeeModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MyCompany_OOP.Tests
 {
     [TestClass]
-    public class MySalaryCalculator_DeveloperTests
+    public class MySalaryCalculatorDeveloperTests
     {
         [TestMethod]
         public void CalculateSalaryForDeveloperWith_ExpirienceLess_2Years()
@@ -23,7 +23,7 @@ namespace MyCompany_OOP.Tests
             var expected = 7000;
 
             //act
-            SalaryCalculator_Developer salaryCalculator_Developer = new SalaryCalculator_Developer();
+            SalaryCalculatorDeveloper salaryCalculator_Developer = new SalaryCalculatorDeveloper();
             var actual = salaryCalculator_Developer.CalculateSalary(developer);
 
             //assert
@@ -45,7 +45,7 @@ namespace MyCompany_OOP.Tests
             var expected = 7200;
 
             //act
-            SalaryCalculator_Developer salaryCalculator_Developer = new SalaryCalculator_Developer();
+            SalaryCalculatorDeveloper salaryCalculator_Developer = new SalaryCalculatorDeveloper();
             var actual = salaryCalculator_Developer.CalculateSalary(developer);
 
             //assert
@@ -67,7 +67,7 @@ namespace MyCompany_OOP.Tests
             var expected = 8900;
 
             //act
-            SalaryCalculator_Developer salaryCalculator_Developer = new SalaryCalculator_Developer();
+            SalaryCalculatorDeveloper salaryCalculator_Developer = new SalaryCalculatorDeveloper();
             var actual = salaryCalculator_Developer.CalculateSalary(developer);
 
             //assert
@@ -83,7 +83,7 @@ namespace MyCompany_OOP.Tests
             var expected = new NullReferenceException();
 
             //act
-            SalaryCalculator_Developer salaryCalculator_Developer = new SalaryCalculator_Developer();
+            SalaryCalculatorDeveloper salaryCalculator_Developer = new SalaryCalculatorDeveloper();
             var actual = salaryCalculator_Developer.CalculateSalary(designer);
 
             //assert
@@ -91,15 +91,15 @@ namespace MyCompany_OOP.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void CalculateSalary_IfDeveloper_EquelNull()
         {
             //arrange
             Developer developer = null;
-            var expected = new NullReferenceException();
+            var expected = new ArgumentNullException();
 
             //act
-            SalaryCalculator_Developer salaryCalculator_Developer = new SalaryCalculator_Developer();
+            SalaryCalculatorDeveloper salaryCalculator_Developer = new SalaryCalculatorDeveloper();
             var actual = salaryCalculator_Developer.CalculateSalary(developer);
 
             //assert

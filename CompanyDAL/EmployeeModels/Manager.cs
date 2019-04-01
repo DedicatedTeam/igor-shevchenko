@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Company_OOP.Employees
+namespace Company_OOP.CompanyDAL.EmployeeModels
 {
     public class Manager : Employee
     {

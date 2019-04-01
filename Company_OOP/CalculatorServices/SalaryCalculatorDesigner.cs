@@ -1,9 +1,9 @@
-﻿using Company_OOP.Employees;
+﻿using Company_OOP.CompanyDAL.EmployeeModels;
 using System;
 
-namespace Company_OOP.Calculators
+namespace Company_OOP.CompanyBLL.CalculatorServices
 {
-    public class SalaryCalculator_Designer : Calculator_Employee
+    public class SalaryCalculatorDesigner : SalaryCalculatorEmployee
     {
         public override decimal CalculateSalary(Employee employee)
         {
@@ -12,7 +12,7 @@ namespace Company_OOP.Calculators
                 Designer designer = employee as Designer;
                 if(designer != null)
                 {
-                    return base.CalculateSalary(designer) * (decimal)designer.EffectivnessCoefficient;
+                    return base.CalculateSalary(designer) * designer.EffectivnessCoefficient;
                 }
                 else
                 {
@@ -21,7 +21,7 @@ namespace Company_OOP.Calculators
             }
             else
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
         }
     }

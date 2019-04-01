@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Company_OOP.Employees;
+using Company_OOP.CompanyDAL.EmployeeModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MyCompany_OOP.Tests

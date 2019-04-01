@@ -1,117 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Company_OOP.Calculators;
-using Company_OOP.Employees;
+using Company_OOP.CompanyBLL.CalculatorServices;
+using Company_OOP.CompanyDAL.EmployeeModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MyCompany_OOP.Tests
 {
     [TestClass]
-    public class MySalaryCalculator_ManagerTests
+    public class MySalaryCalculatorManagerTests
     {
-        [TestMethod]
-        public void ReturnTrueIfDevelopersMore()
-        {
-            //arrange
-            List<Employee> employees = new List<Employee>();
-
-            Designer designer = new Designer()
-            {
-                FirstName = "Mark",
-                SecondName = "Dark",
-                Experiance = 3,
-                SalaryValue = 4000,
-                EffectivnessCoefficient = 1,
-                Manager = null
-            };
-            Developer developer1 = new Developer()
-            {
-                FirstName = "Max",
-                SecondName = "Newsted",
-                Experiance = 1,
-                SalaryValue = 35000,
-                Manager = null
-            };
-            Developer developer2 = new Developer()
-            {
-                FirstName = "Roland",
-                SecondName = "Scott",
-                Experiance = 4,
-                SalaryValue = 35000,
-                Manager = null
-            };
-            employees.Add(designer);
-            employees.Add(developer1);
-            employees.Add(developer2);
-            var expected = true;
-
-            //act
-            SalaryCalculator_Manager salaryCalculator_Manager = new SalaryCalculator_Manager();
-            var actual = salaryCalculator_Manager.FindOutDevelopersMoreThanDesigners(employees);
-
-            //assert
-            Assert.AreEqual(actual, expected);
-        }
-
-        [TestMethod]
-        public void ReturnFalseIfDevelopersLess()
-        {
-            //arrange
-            List<Employee> employees = new List<Employee>();
-
-            Designer designer = new Designer()
-            {
-                FirstName = "Mark",
-                SecondName = "Dark",
-                Experiance = 3,
-                SalaryValue = 4000,
-                EffectivnessCoefficient = 1,
-                Manager = null
-            };
-            Designer designer2 = new Designer()
-            {
-                FirstName = "Max",
-                SecondName = "Newsted",
-                Experiance = 1,
-                SalaryValue = 35000,
-                Manager = null
-            };
-            Developer developer = new Developer()
-            {
-                FirstName = "Roland",
-                SecondName = "Scott",
-                Experiance = 4,
-                SalaryValue = 35000,
-                Manager = null
-            };
-            employees.Add(designer);
-            employees.Add(designer2);
-            employees.Add(developer);
-            var expected = false;
-
-            //act
-            SalaryCalculator_Manager salaryCalculator_Manager = new SalaryCalculator_Manager();
-            var actual = salaryCalculator_Manager.FindOutDevelopersMoreThanDesigners(employees);
-
-            //assert
-            Assert.AreEqual(actual, expected);
-        }
-
-        [TestMethod]
-        public void ReturnFalseIfDevelopersNull()
-        {
-            //arrange
-            List<Employee> employees = null;
-            var expected = false;
-
-            //act
-            SalaryCalculator_Manager salaryCalculator_Manager = new SalaryCalculator_Manager();
-            var actual = salaryCalculator_Manager.FindOutDevelopersMoreThanDesigners(employees);
-
-            //assert
-            Assert.AreEqual(actual, expected);
-        }
-
         [TestMethod]
         public void CalculateSalaryForManagerWith_ExpirienceLess_2Years_AndHisTeamHasLessThan5Members()
         {
@@ -127,7 +24,7 @@ namespace MyCompany_OOP.Tests
             var expected = 7000;
 
             //act
-            SalaryCalculator_Manager salaryCalculator_Manager = new SalaryCalculator_Manager();
+            SalaryCalculatorManager salaryCalculator_Manager = new SalaryCalculatorManager();
             var actual = salaryCalculator_Manager.CalculateSalary(manager);
 
             //assert
@@ -164,7 +61,7 @@ namespace MyCompany_OOP.Tests
             var expected = 8140;
 
             //act
-            SalaryCalculator_Manager salaryCalculator_Manager = new SalaryCalculator_Manager();
+            SalaryCalculatorManager salaryCalculator_Manager = new SalaryCalculatorManager();
             var actual = salaryCalculator_Manager.CalculateSalary(manager);
 
             //assert
@@ -201,7 +98,7 @@ namespace MyCompany_OOP.Tests
             var expected = 7400;
 
             //act
-            SalaryCalculator_Manager salaryCalculator_Manager = new SalaryCalculator_Manager();
+            SalaryCalculatorManager salaryCalculator_Manager = new SalaryCalculatorManager();
             var actual = salaryCalculator_Manager.CalculateSalary(manager);
 
             //assert
@@ -248,7 +145,7 @@ namespace MyCompany_OOP.Tests
             var expected = 10120;
 
             //act
-            SalaryCalculator_Manager salaryCalculator_Manager = new SalaryCalculator_Manager();
+            SalaryCalculatorManager salaryCalculator_Manager = new SalaryCalculatorManager();
             var actual = salaryCalculator_Manager.CalculateSalary(manager);
 
             //assert
@@ -264,7 +161,7 @@ namespace MyCompany_OOP.Tests
             var expected = new NullReferenceException();
 
             //act
-            SalaryCalculator_Manager salaryCalculator_Manager = new SalaryCalculator_Manager();
+            SalaryCalculatorManager salaryCalculator_Manager = new SalaryCalculatorManager();
             var actual = salaryCalculator_Manager.CalculateSalary(designer);
 
             //assert
@@ -272,15 +169,15 @@ namespace MyCompany_OOP.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void CalculateSalary_IfManager_EquelNull()
         {
             //arrange
             Manager manager = null;
-            var expected = new NullReferenceException();
+            var expected = new ArgumentNullException();
 
             //act
-            SalaryCalculator_Manager salaryCalculator_Manager = new SalaryCalculator_Manager();
+            SalaryCalculatorManager salaryCalculator_Manager = new SalaryCalculatorManager();
             var actual = salaryCalculator_Manager.CalculateSalary(manager);
 
             //assert

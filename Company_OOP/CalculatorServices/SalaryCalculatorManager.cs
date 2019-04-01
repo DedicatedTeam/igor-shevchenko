@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Company_OOP.CompanyDAL.EmployeeModels;
+using System;
 using System.Collections.Generic;
-using Company_OOP.Employees;
 
-namespace Company_OOP.Calculators
+namespace Company_OOP.CompanyBLL.CalculatorServices
 {
-    public class SalaryCalculator_Manager : Calculator_Employee
+    public class SalaryCalculatorManager : SalaryCalculatorEmployee
     {
         public override decimal CalculateSalary(Employee employee)
         {
@@ -39,12 +39,12 @@ namespace Company_OOP.Calculators
             }
             else
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
         }
 
         // Count amount of each types of Employee. If developers more - return true, else false
-        public bool FindOutDevelopersMoreThanDesigners(List<Employee> employees)
+        private bool FindOutDevelopersMoreThanDesigners(List<Employee> employees)
         {
             if (employees != null)
             {

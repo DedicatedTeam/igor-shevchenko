@@ -1,10 +1,10 @@
-﻿namespace Company_OOP.Reports
+﻿namespace Company_OOP.CompanyDAL.ReportModels.SalaryReport
 {
     public class SalaryReport : ISalaryReport
     {
         private string _firstName;
         public string FirstName { get; set; }
-
+         
         private string _secondName;
         public string SecondName { get; set; }
 

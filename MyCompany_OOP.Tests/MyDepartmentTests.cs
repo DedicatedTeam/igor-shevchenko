@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Company_OOP.Calculators;
-using Company_OOP.Employees;
-using Company_OOP.Reports;
+﻿using System.Collections.Generic;
+using Company_OOP.CompanyBLL;
+using Company_OOP.CompanyDAL.EmployeeModels;
+using Company_OOP.CompanyDAL.ReportModels.SalaryReport;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MyCompany_OOP.Tests
@@ -68,7 +67,7 @@ namespace MyCompany_OOP.Tests
                 SecondName = "Durst",
                 Experiance = 1,
                 SalaryValue = 4000,
-                EffectivnessCoefficient = 0.9,
+                EffectivnessCoefficient = 0.9M,
                 Manager = manager
             };
             Designer designer2 = new Designer()

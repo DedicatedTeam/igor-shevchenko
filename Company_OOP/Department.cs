@@ -1,9 +1,10 @@
-﻿using Company_OOP.Calculators;
-using Company_OOP.Reports;
+﻿using Company_OOP.CompanyBLL.CalculatorServices;
+using Company_OOP.CompanyDAL.EmployeeModels;
+using Company_OOP.CompanyDAL.ReportModels.SalaryReport;
 using System;
 using System.Collections.Generic;
 
-namespace Company_OOP.Employees
+namespace Company_OOP.CompanyBLL
 {
     public class Department
     {
@@ -35,12 +36,12 @@ namespace Company_OOP.Employees
             {
                 try
                 {
-                    _calculator = Factory_Calculator.GetCalculatorRealisation(item);
+                    _calculator = FactoryCalculator.GetCalculatorRealisation(item);
                     _salaryReports.Add(new SalaryReport(item.FirstName, item.SecondName, _calculator.CalculateSalary(item)));
 
                     foreach (var empl in item.GetTeam())
                     {
-                        _calculator = Factory_Calculator.GetCalculatorRealisation(empl);
+                        _calculator = FactoryCalculator.GetCalculatorRealisation(empl);
                         _salaryReports.Add(new SalaryReport(item.FirstName, item.SecondName, _calculator.CalculateSalary(empl)));
                     }
                 }
@@ -49,6 +50,14 @@ namespace Company_OOP.Employees
                     // Write this error in log file
                 }
                 catch (NullReferenceException)
+                {
+                    // Write this error in log file
+                }
+                catch (ArgumentNullException)
+                {
+                    // Write this error in log file
+                }
+                catch (Exception)
                 {
                     // Write this error in log file
                 }

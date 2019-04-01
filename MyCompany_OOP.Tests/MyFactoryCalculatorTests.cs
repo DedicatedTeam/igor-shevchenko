@@ -1,6 +1,6 @@
 ﻿using System;
-using Company_OOP.Calculators;
-using Company_OOP.Employees;
+using Company_OOP.CompanyBLL.CalculatorServices;
+using Company_OOP.CompanyDAL.EmployeeModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MyCompany_OOP.Tests
@@ -13,10 +13,10 @@ namespace MyCompany_OOP.Tests
         {
             //arrange
             Designer designer = new Designer();
-            ICalculator expected = new SalaryCalculator_Designer();
+            ICalculator expected = new SalaryCalculatorDesigner();
 
             //act
-            var actual = Factory_Calculator.GetCalculatorRealisation(designer);
+            var actual = FactoryCalculator.GetCalculatorRealisation(designer);
 
             //assert
             Assert.ReferenceEquals(actual, expected);
@@ -27,10 +27,10 @@ namespace MyCompany_OOP.Tests
         {
             //arrange
             Developer developer = new Developer();
-            ICalculator expected = new SalaryCalculator_Developer();
+            ICalculator expected = new SalaryCalculatorDeveloper();
 
             //act
-            var actual = Factory_Calculator.GetCalculatorRealisation(developer);
+            var actual = FactoryCalculator.GetCalculatorRealisation(developer);
 
             //assert
             Assert.ReferenceEquals(actual, expected);
@@ -41,25 +41,25 @@ namespace MyCompany_OOP.Tests
         {
             //arrange
             Manager manager = new Manager();
-            ICalculator expected = new SalaryCalculator_Manager();
+            ICalculator expected = new SalaryCalculatorManager();
 
             //act
-            var actual = Factory_Calculator.GetCalculatorRealisation(manager);
+            var actual = FactoryCalculator.GetCalculatorRealisation(manager);
 
             //assert
             Assert.ReferenceEquals(actual, expected);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void GetCalculatorRealisation_IfEmployeeIsNull()
         {
             //arrange
             Employee employee = null;
-            var expected = new NullReferenceException();
+            var expected = new ArgumentNullException();
 
             //act
-            var actual = Factory_Calculator.GetCalculatorRealisation(employee);
+            var actual = FactoryCalculator.GetCalculatorRealisation(employee);
 
             //assert
             Assert.AreEqual(expected, actual);

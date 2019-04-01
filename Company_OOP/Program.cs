@@ -1,8 +1,9 @@
-﻿using Company_OOP.Reports;
+﻿using Company_OOP.CompanyDAL.EmployeeModels;
+using Company_OOP.CompanyDAL.ReportModels.SalaryReport;
 using System;
 using System.Collections.Generic;
 
-namespace Company_OOP.Employees
+namespace Company_OOP.CompanyBLL
 {
     class Program
     {
@@ -33,7 +34,7 @@ namespace Company_OOP.Employees
                 SecondName = "Durst",
                 Experiance = 1,
                 SalaryValue = 4000,
-                EffectivnessCoefficient = 0.9,
+                EffectivnessCoefficient = 0.9M,
                 Manager = manager
             };
             Designer designer2 = new Designer()
@@ -42,7 +43,7 @@ namespace Company_OOP.Employees
                 SecondName = "Dark",
                 Experiance = 3,
                 SalaryValue = 4000,
-                EffectivnessCoefficient = 1,
+                EffectivnessCoefficient = 1M,
                 Manager = manager
             };
 

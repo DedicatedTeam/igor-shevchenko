@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Company_OOP.Employees
+namespace Company_OOP.CompanyDAL.EmployeeModels
 {
     public abstract class Employee
     {

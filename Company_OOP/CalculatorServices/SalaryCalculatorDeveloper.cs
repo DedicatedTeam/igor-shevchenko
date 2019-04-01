@@ -1,9 +1,9 @@
-﻿using Company_OOP.Employees;
+﻿using Company_OOP.CompanyDAL.EmployeeModels;
 using System;
 
-namespace Company_OOP.Calculators
+namespace Company_OOP.CompanyBLL.CalculatorServices
 {
-    public class SalaryCalculator_Developer : Calculator_Employee
+    public class SalaryCalculatorDeveloper : SalaryCalculatorEmployee
     {
         public override decimal CalculateSalary(Employee employee)
         {
@@ -21,7 +21,7 @@ namespace Company_OOP.Calculators
             }
             else
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
         }
     }

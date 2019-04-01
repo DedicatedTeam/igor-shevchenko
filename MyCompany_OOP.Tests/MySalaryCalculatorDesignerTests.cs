@@ -1,12 +1,12 @@
 ﻿using System;
-using Company_OOP.Calculators;
-using Company_OOP.Employees;
+using Company_OOP.CompanyBLL.CalculatorServices;
+using Company_OOP.CompanyDAL.EmployeeModels;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace MyCompany_OOP.Tests
 {
     [TestClass]
-    public class MySalaryCalculator_DesignerTests
+    public class MySalaryCalculatorDesignerTests
     {
         [TestMethod]
         public void CalculateSalaryForDesignerWith_ExpirienceLess_2Years_AndEffectivnessKoef_08()
@@ -18,13 +18,13 @@ namespace MyCompany_OOP.Tests
                 SecondName = "Dullitl",
                 Experiance = 1,
                 SalaryValue = 7000,
-                EffectivnessCoefficient = 0.8,
+                EffectivnessCoefficient = 0.8M,
                 Manager = null
             };
             var expected = 5600;
 
             //act
-            SalaryCalculator_Designer salaryCalculator_Designer = new SalaryCalculator_Designer();
+            SalaryCalculatorDesigner salaryCalculator_Designer = new SalaryCalculatorDesigner();
             var actual = salaryCalculator_Designer.CalculateSalary(designer);
 
             //assert
@@ -41,13 +41,13 @@ namespace MyCompany_OOP.Tests
                 SecondName = "Dullitl",
                 Experiance = 3,
                 SalaryValue = 7000,
-                EffectivnessCoefficient = 1,
+                EffectivnessCoefficient = 1M,
                 Manager = null
             };
             var expected = 7200;
 
             //act
-            SalaryCalculator_Designer salaryCalculator_Designer = new SalaryCalculator_Designer();
+            SalaryCalculatorDesigner salaryCalculator_Designer = new SalaryCalculatorDesigner();
             var actual = salaryCalculator_Designer.CalculateSalary(designer);
 
             //assert
@@ -64,13 +64,13 @@ namespace MyCompany_OOP.Tests
                 SecondName = "Dullitl",
                 Experiance = 7,
                 SalaryValue = 7000,
-                EffectivnessCoefficient = 0.7,
+                EffectivnessCoefficient = 0.7M,
                 Manager = null
             };
             var expected = 6230;
 
             //act
-            SalaryCalculator_Designer salaryCalculator_Designer = new SalaryCalculator_Designer();
+            SalaryCalculatorDesigner salaryCalculator_Designer = new SalaryCalculatorDesigner();
             var actual = salaryCalculator_Designer.CalculateSalary(designer);
 
             //assert
@@ -86,7 +86,7 @@ namespace MyCompany_OOP.Tests
             var expected = new NullReferenceException();
 
             //act
-            SalaryCalculator_Designer salaryCalculator_Designer = new SalaryCalculator_Designer();
+            SalaryCalculatorDesigner salaryCalculator_Designer = new SalaryCalculatorDesigner();
             var actual = salaryCalculator_Designer.CalculateSalary(developer);
 
             //assert
@@ -94,15 +94,15 @@ namespace MyCompany_OOP.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(NullReferenceException))]
+        [ExpectedException(typeof(ArgumentNullException))]
         public void CalculateSalary_IfDesigner_EquelNull()
         {
             //arrange
             Designer designer = null;
-            var expected = new NullReferenceException();
+            var expected = new ArgumentNullException();
 
             //act
-            SalaryCalculator_Designer salaryCalculator_Designer = new SalaryCalculator_Designer();
+            SalaryCalculatorDesigner salaryCalculator_Designer = new SalaryCalculatorDesigner();
             var actual = salaryCalculator_Designer.CalculateSalary(designer);
 
             //assert

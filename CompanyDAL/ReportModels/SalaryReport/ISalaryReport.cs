@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Company_OOP.Reports
+namespace Company_OOP.CompanyDAL.ReportModels.SalaryReport
 {
     public interface ISalaryReport
     {

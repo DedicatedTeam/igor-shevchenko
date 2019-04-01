@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C3A4BEA1-8004-43AD-B8FD-F7C82939D6BF}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>Company_OOP</RootNamespace>
-    <AssemblyName>Company_OOP</AssemblyName>
+    <ProjectGuid>{6431BA37-806B-4824-A1B0-21C9E24AB474}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CompanyBLL</RootNamespace>
+    <AssemblyName>CompanyBLL</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,25 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculators\Factory_Calculator.cs" />
-    <Compile Include="Calculators\SalaryCalculator_Developer.cs" />
-    <Compile Include="Calculators\SalaryCalculator_Manager.cs" />
-    <Compile Include="Department.cs" />
-    <Compile Include="Employees\Designer.cs" />
-    <Compile Include="Employees\Developer.cs" />
-    <Compile Include="Employees\Employee.cs" />
-    <Compile Include="Employees\Manager.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Calculators\ICalculator.cs" />
-    <Compile Include="Calculators\SalaryCalculator_Designer.cs" />
-    <Compile Include="Calculators\Calculator_Employee.cs" />
-    <Compile Include="Reports\ISalaryReport.cs" />
-    <Compile Include="Reports\SalaryReport.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\CompanyDAL\CompanyDAL.csproj">
+      <Project>{28806ed7-5e36-40b0-aa90-13a9eb11437b}</Project>
+      <Name>CompanyDAL</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,9 +1,9 @@
-﻿using Company_OOP.Employees;
+﻿using Company_OOP.CompanyDAL.EmployeeModels;
 using System;
 
-namespace Company_OOP.Calculators
+namespace Company_OOP.CompanyBLL.CalculatorServices
 {
-    public abstract class Calculator_Employee : ICalculator
+    public abstract class SalaryCalculatorEmployee : ICalculator
     {
         public virtual decimal CalculateSalary(Employee employee)
         {
@@ -25,7 +25,7 @@ namespace Company_OOP.Calculators
             }
             else
             {
-                throw new NullReferenceException();
+                throw new ArgumentNullException();
             }
         }
     }
