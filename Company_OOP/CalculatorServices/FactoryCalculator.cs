@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Company_OOP.CompanyBLL.CalculatorServices
 {
-    public static class FactoryCalculator
+    public class FactoryCalculator
     {
         private static IDictionary<Type, ICalculator> calculators = new Dictionary<Type, ICalculator>();
         private static ICalculator _salaryCalculatorDesigner = new SalaryCalculatorDesigner();
@@ -18,7 +18,7 @@ namespace Company_OOP.CompanyBLL.CalculatorServices
             calculators.Add(typeof(Manager), _salaryCalculatorManager);
         }
 
-        public static ICalculator GetCalculatorRealisation(Employee employee)
+        public ICalculator GetCalculatorRealisation(Employee employee)
         {
             if (employee != null)
             {

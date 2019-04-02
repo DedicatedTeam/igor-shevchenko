@@ -10,6 +10,7 @@ namespace Company_OOP.CompanyBLL
     {
         private List<Manager> _managers = new List<Manager>();
         private List<ISalaryReport> _salaryReports = new List<ISalaryReport>();
+        private FactoryCalculator _factoryCalculator = new FactoryCalculator();
         private ICalculator _calculator;
 
         // Add manager to list of managers (with teams)
@@ -36,12 +37,12 @@ namespace Company_OOP.CompanyBLL
             {
                 try
                 {
-                    _calculator = FactoryCalculator.GetCalculatorRealisation(item);
+                    _calculator = _factoryCalculator.GetCalculatorRealisation(item);
                     _salaryReports.Add(new SalaryReport(item.FirstName, item.SecondName, _calculator.CalculateSalary(item)));
 
                     foreach (var empl in item.GetTeam())
                     {
-                        _calculator = FactoryCalculator.GetCalculatorRealisation(empl);
+                        _calculator = _factoryCalculator.GetCalculatorRealisation(empl);
                         _salaryReports.Add(new SalaryReport(item.FirstName, item.SecondName, _calculator.CalculateSalary(empl)));
                     }
                 }

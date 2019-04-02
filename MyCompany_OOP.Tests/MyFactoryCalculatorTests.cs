@@ -14,9 +14,10 @@ namespace MyCompany_OOP.Tests
             //arrange
             Designer designer = new Designer();
             ICalculator expected = new SalaryCalculatorDesigner();
+            FactoryCalculator factoryCalculator = new FactoryCalculator();
 
             //act
-            var actual = FactoryCalculator.GetCalculatorRealisation(designer);
+            var actual = factoryCalculator.GetCalculatorRealisation(designer);
 
             //assert
             Assert.ReferenceEquals(actual, expected);
@@ -28,9 +29,10 @@ namespace MyCompany_OOP.Tests
             //arrange
             Developer developer = new Developer();
             ICalculator expected = new SalaryCalculatorDeveloper();
+            FactoryCalculator factoryCalculator = new FactoryCalculator();
 
             //act
-            var actual = FactoryCalculator.GetCalculatorRealisation(developer);
+            var actual = factoryCalculator.GetCalculatorRealisation(developer);
 
             //assert
             Assert.ReferenceEquals(actual, expected);
@@ -42,9 +44,10 @@ namespace MyCompany_OOP.Tests
             //arrange
             Manager manager = new Manager();
             ICalculator expected = new SalaryCalculatorManager();
+            FactoryCalculator factoryCalculator = new FactoryCalculator();
 
             //act
-            var actual = FactoryCalculator.GetCalculatorRealisation(manager);
+            var actual = factoryCalculator.GetCalculatorRealisation(manager);
 
             //assert
             Assert.ReferenceEquals(actual, expected);
@@ -56,10 +59,11 @@ namespace MyCompany_OOP.Tests
         {
             //arrange
             Employee employee = null;
+            FactoryCalculator factoryCalculator = new FactoryCalculator();
             var expected = new ArgumentNullException();
 
             //act
-            var actual = FactoryCalculator.GetCalculatorRealisation(employee);
+            var actual = factoryCalculator.GetCalculatorRealisation(employee);
 
             //assert
             Assert.AreEqual(expected, actual);
